@@ -1,0 +1,129 @@
+.appContainer {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-image: url("./assets/bg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/*init Styles Start Component*/
+.startComponent {
+  position: absolute;
+  width: 30%;
+  height: auto;
+  background-color: #343964;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 15px;
+  text-align: center;
+
+}
+
+.congratsImg {
+  width: 90%;
+  height: 200px;
+  
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-left: 5%;
+}
+
+h2 {
+  text-align: center;
+  color: #E2E4F3;
+  margin-bottom: 10px;
+  
+}
+
+.startComponent span {
+  color: #E2E4F3;
+}
+
+.playAgainBtn {
+  width: 250px;
+  height: 50px;
+  margin: 50px 0;
+  background: linear-gradient(#E65895, #BC6BE8);
+  color: #E2E4F3;
+  border: none;
+  border-radius: 10px;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  
+
+}
+
+.playAgainBtn:hover {
+  border: 1px solid #E2E4F3;
+}
+
+/*End Styles Start Component*/
+/*Init Styles Quiz Component*/
+.quizComponentContainer {
+  display: grid;
+  width: 70%;
+  margin-left: 15%;
+  row-gap: 50px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 140px;
+}
+h1 {
+  color: #E2E4F3;
+}
+
+.points {
+  width: 130px;
+  height: auto;
+  display: inline;
+  padding: 1px 12px;
+  background: linear-gradient(#E65895, #BC6BE8);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  color: #E2E4F3;
+}
+
+.trophy {
+  width: 20px;
+  height: 30px;
+  background-image: url("/trophy.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-right: 5px;
+}
+
+.quizContainer {
+    width: 100%;
+    height: 200px;
+    background-color: #343964;
+    border-radius: 15px;
+}
+
+/*Init Styles Quiz Component*/
+
+/*Init Styles NumberQuestion Component*/
+.circle {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: #393F6E;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #E2E4F3;
+}
+
+.answer {
+  background: linear-gradient(#E65895, #BC6BE8);
+}
+/*End Styles NumberQuestion Component*/
