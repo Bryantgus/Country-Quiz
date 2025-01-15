@@ -109,6 +109,11 @@ h1 {
     border-radius: 15px;
 }
 
+.numbers {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
 /*Init Styles Quiz Component*/
 
 /*Init Styles NumberQuestion Component*/
@@ -121,9 +126,19 @@ h1 {
   justify-content: center;
   align-items: center;
   color: #E2E4F3;
-}
-
-.answer {
-  background: linear-gradient(#E65895, #BC6BE8);
+  margin-top: 30px;
 }
 /*End Styles NumberQuestion Component*/
+.question {
+  text-align: center;
+  width: 200px;
+  height: auto;
+}
+
+.question span {
+  display: inline;
+  word-wrap: break-word;
+  overflow-wrap: break-word; 
+  color: #E2E4F3;
+}
+
