@@ -1,9 +1,58 @@
 import {useState, useEffect} from "react"
 import NumberQuestion from "./NumberQuestion";
+import BtnAnswer from "./BtnAnswer";
+import infoCountries from "../data/InfoCountries.json"
 
 export default function Quiz() {
-    const [question, setQuestion] = useState("asdquestionquestionquestionquestionquestion");
-    const array = [[1,true],[2,false],[3,true],[4,true],[5,true],[6,false],[7,false],[8,true],[9,true],[10,false]];
+    
+    const [numberQuestions, setNumberQuestions] = useState([
+        [1,false],[2,false],[3,false],[4,false],[5,false],[6,false],
+        [7,false],[8,false],[9,false],[10,false]]);
+    
+    const [question, setQuestion] = useState("");        
+    const [answers, setAnswers] = useState([1,2,3,4]);
+    const [correctAnswer, setCorrectAnswer] = useState("");
+
+    function NextQuestion() {
+        const numberQuestion = Math.floor(Math.random() * 4);
+        const numberCountry = Math.floor(Math.random() * 250);
+        const countrySelected = infoCountries[numberCountry]
+
+        switch (numberQuestion) {
+            case 0:
+                setQuestion(`What is the capital of ${countrySelected.name.common}`);
+                setCorrectAnswer(countrySelected.capital);
+              break;
+            case 1:
+                setQuestion(`What is the name of the country whose capital is? ${countrySelected.capital}`);
+                setCorrectAnswer(countrySelected.name.common);
+              break;
+            case 2:
+                setQuestion(`What is the population of  ${countrySelected.name.common}`);
+                setCorrectAnswer(countrySelected.population);
+              break;
+            case 3:
+                setQuestion(`What is the area of ${countrySelected.name.common}`);
+                setCorrectAnswer(countrySelected.area);
+              break;
+            default:
+          }
+        let allAnswers = [];
+        let positionOfCorrectAnswer = Math.floor(Math.random() * 4);
+        for (let index = 0; index < 3; index++) {
+            
+            if (index === positionOfCorrectAnswer) {
+                allAnswers.push(correctAnswer);
+            } else {
+            allAnswers.push(Math.floor(Math.random() * 250));
+            }
+        }
+          setAnswers(allAnswers);
+          console.log(question);
+          console.log()
+          
+    }
+
     return (
         <div className="quizComponentContainer">
             <header>
@@ -17,7 +66,7 @@ export default function Quiz() {
             <div className="quizContainer">
 
                 <div className="numbers">
-                    {array.map((item, index) => {
+                    {numberQuestions.map((item, index) => {
                         return (
                             <NumberQuestion 
                             key={index} 
@@ -30,7 +79,16 @@ export default function Quiz() {
                     <span>
                         {question}
                     </span>
-                    </div>
+                </div>
+                <div className="answer">
+                    {answers.map((item, index) => {
+                        return (
+                            <BtnAnswer 
+                                key={index}
+                                answer={item} />
+                        )
+                    })}
+                </div>
             </div>
         </div>
     )

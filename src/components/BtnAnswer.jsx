@@ -2,10 +2,12 @@ import PropTypes from "prop-types"
 
 export default function BtnAnswer(props) {
     return (
-        <span onClick={() => props.}>{props.answer}</span>
+        <div className="answerComponent">
+            <span>{props.answer}</span>
+        </div>
     )
 }
 
 BtnAnswer.propTypes = {
-
+    answer: PropTypes.string
 }
