@@ -9,5 +9,7 @@ export default function BtnAnswer(props) {
 }
 
 BtnAnswer.propTypes = {
-    answer: PropTypes.string
+    answer: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number,])
 }
