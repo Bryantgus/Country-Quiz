@@ -1,0 +1,19 @@
+[
+    {
+        "question": "What is the capital of replaceNameCommon",
+        "dataAnswer": ["Capital"]
+    },
+    {
+        "question": "What is the name of the country whose capital is replaceCapital?",
+        "dataAnswer": ["name", "common"]
+    },
+    {
+        "question": "What is the population of replaceNameCommon",
+        "dataAnswer": ["population"]
+    },
+    {
+        "question": "What is the area of replaceNameCommon?",
+        "dataAnswer": ["area"]
+    }
+
+]

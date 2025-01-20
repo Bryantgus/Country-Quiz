@@ -11,5 +11,6 @@ export default function BtnAnswer(props) {
 BtnAnswer.propTypes = {
     answer: PropTypes.oneOfType([
         PropTypes.string,
-        PropTypes.number,])
+        PropTypes.number,
+        PropTypes.array])
 }
