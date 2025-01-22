@@ -18,43 +18,41 @@ export default function Quiz() {
         const countrySelected = infoCountries[numberCountry];
 
         const randomNumQuestion = Math.floor(Math.random() * Questions.length);
+        let stringToReplace = Questions[randomNumQuestion]["dataQuestion"].reduce(
+            (obj, key) => obj && obj[key],
+             countrySelected
+            );
 
-        const questionSelected = Questions[randomNumQuestion]["question"].replace("replaceNameCommon", countrySelected.name.common);
-        const correctAnswer = Questions[randomNumQuestion]["dataAnswer"].reduce((obj, key) => obj && obj[key], countrySelected);
-        const formatedCorrectAnswer = Array.isArray(correctAnswer) ? correctAnswer[0] : correctAnswer;
-        console.log(questionSelected, formatedCorrectAnswer);
+
+        const questionSelected = Questions[randomNumQuestion]["question"].replace("replace", stringToReplace);
         
-
-
-
-
-
-        // const randomQuestion = Math.floor(Math.random() * 4)
-        // const InfoAnswer = Questions[Math.floor(Math.random() * 4)]["dataAnswer"].replace("replaceNameCommon", countrySelected.name.common);
-        // setQuestion()
-        // setCorrectAnswer();
-        // let correctAnswer = "";
-        // let whichData = [];
+        let correctAnswer = Questions[randomNumQuestion]["dataAnswer"].reduce(
+            (obj, key) => obj && obj[key],
+             countrySelected
+            );
+        correctAnswer = Array.isArray(correctAnswer) ? correctAnswer[0] : correctAnswer;
     
-        // var allAnswers = [];
-        // //Position Correct Answer
-        // const pca = Math.floor(Math.random() * 4);
-        // for (let index = 0; index < 4; index++) {
-        //     if (index === pca) {
-        //         allAnswers.push(correctAnswer);
-        //     } else {
-        //         do {
-        //             var randomCountry = Math.floor(Math.random() * 250);
-        //         } while (randomCountry === numberCountry);
-        //         var otherAnswer = whichData.reduce((obj, key) => obj && obj[key], infoCountries[randomCountry]);
-        //         allAnswers.push(otherAnswer);
-        //     }          
-        // }
-        // allAnswers = allAnswers.map(answer => 
-        //     typeof answer === "number" ? answer.toLocaleString() : answer
-        // );
+        var allAnswers = [];
+        //Position Correct Answer
+        const pca = Math.floor(Math.random() * 4);
+        for (let index = 0; index < 4; index++) {
+            if (index === pca) {
+                allAnswers.push(correctAnswer);
+            } else {
+                do {
+                    var randomCountry = Math.floor(Math.random() * 250);
+                } while (randomCountry === numberCountry);
+                var otherAnswer = Questions[randomNumQuestion]["dataQuestion"].reduce((obj, key) => obj && obj[key], infoCountries[randomCountry]);
+                console.log(otherAnswer);
+                allAnswers.push(otherAnswer);
+            }          
+        }
+        allAnswers = allAnswers.map(answer => 
+            typeof answer === "number" ? answer.toLocaleString() : answer
+        );
             
-        // setAnswers(allAnswers);  
+        setAnswers(allAnswers);  
+        setQuestion(questionSelected);
     }, [numberQuestions]);
     
 
