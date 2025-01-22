@@ -16,9 +16,19 @@ export default function Quiz() {
     useEffect(() => {
         const numberCountry = Math.floor(Math.random() * 250);
         const countrySelected = infoCountries[numberCountry];
-        const questionSelected = Questions[Math.floor(Math.random() * Questions.length)]["question"].replace("replaceNameCommon", countrySelected.name.common);
-        console.log(questionSelected);
+
+        const randomNumQuestion = Math.floor(Math.random() * Questions.length);
+
+        const questionSelected = Questions[randomNumQuestion]["question"].replace("replaceNameCommon", countrySelected.name.common);
+        const correctAnswer = Questions[randomNumQuestion]["dataAnswer"].reduce((obj, key) => obj && obj[key], countrySelected);
+        const formatedCorrectAnswer = Array.isArray(correctAnswer) ? correctAnswer[0] : correctAnswer;
+        console.log(questionSelected, formatedCorrectAnswer);
         
+
+
+
+
+
         // const randomQuestion = Math.floor(Math.random() * 4)
         // const InfoAnswer = Questions[Math.floor(Math.random() * 4)]["dataAnswer"].replace("replaceNameCommon", countrySelected.name.common);
         // setQuestion()

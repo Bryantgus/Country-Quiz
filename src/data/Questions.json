@@ -1,7 +1,7 @@
 [
     {
         "question": "What is the capital of replaceNameCommon",
-        "dataAnswer": ["Capital"]
+        "dataAnswer": ["Capital", 0]
     },
     {
         "question": "What is the name of the country whose capital is replaceCapital?",
